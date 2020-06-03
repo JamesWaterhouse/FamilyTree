@@ -13,7 +13,7 @@ function findPersonBreadth($missingPerson, $root) {
                 if ($array[$i]->mum) {
                     $array[] = $array[$i]->mum;
                 }
-                if ($array[$i]->mum) {
+                if ($array[$i]->dad) {
                     $array[] = $array[$i]->dad;
                 }
             }
