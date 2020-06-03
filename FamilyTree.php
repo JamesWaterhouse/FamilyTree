@@ -1,25 +1,26 @@
 <?php
 
-class Person
-{
-    public $name;
-    public $mum;
-    public $dad;
+require './Person.php';
+require './findPersonDepth.php';
+require './findPersonBreadth.php';
 
-    public function __construct(string $name, person $mum = null, person $dad = null)
-    {
-        $this->name = $name;
-        $this->mum = $mum;
-        $this->dad = $dad;
-    }
-}
-
+$nellie = new Person('Nellie');
+$george = new Person('George');
+$edith = new Person('Edith');
+$charles = new Person('Charles');
 $les = new Person('Les');
 $vera = new Person('Vera');
-$derrick = new Person('Derrick');
-$jean = new Person('Jean');
+$derrick = new Person('Derrick', $nellie, $george);
+$jean = new Person('Jean', $edith, $charles);
 $rawson = new Person('Rawson', $vera, $les);
 $helen = new Person('Helen', $jean, $derrick);
 $james = new Person('James', $helen, $rawson);
 
-var_dump($james);
+$depth = findPersonDepth("Vera", $james);
+echo '<br><br>';
+$breadth = findPersonBreadth("Nellie", $james);
+
+echo '<br><br>';
+var_dump($depth);
+echo '<br><br>';
+var_dump($breadth);
